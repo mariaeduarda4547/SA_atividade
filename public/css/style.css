@@ -1,0 +1,518 @@
+/* --- 1. IMPORTAÇÃO DA FONTE (COLOQUE NO TOPO DO ARQUIVO) --- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+/* --- 2. NOVAS VARIÁVEIS DE COR "MINIMALISTA ELEGANTE - CINZA" --- */
+:root {
+    --primary-color: #6C757D; /* Cinza Médio (Moderno) */
+    --primary-hover: #5A6268; /* Cinza um pouco mais escuro */
+    
+    --accent-color-pendente: #F0B86B; /* Dourado suave para pendente */
+    --accent-color-andamento: #6DA4B3; /* Azul acinzentado suave para em andamento */
+    --success-color: #5AA56E; /* Verde discreto para concluída */
+    --danger-color: #DC3545; /* Vermelho padrão para perigo */
+    
+    --text-color: #212529; /* Preto muito escuro para texto */
+    --text-light: #F8F9FA; /* Branco muito claro */
+    
+    --bg-light: #c4c8cc; /* Fundo geral (quase branco) */
+    --bg-dark: #343A40; /* Fundo do header (Cinza escuro) */
+    --bg-white: #FFFFFF; /* Fundo do card principal */
+    
+    --border-color-container: #E9ECEF; /* Borda do container (muito suave) */
+    --border-color-input: #CED4DA; /* Borda do input (discreta) */
+    
+    --shadow-color: rgba(0, 0, 0, 0.04); /* Sombra ultra suave */
+    --shadow-hover: rgba(0, 0, 0, 0.08); /* Sombra um pouco mais forte no hover */
+    
+    --font-family: 'Open Sans', sans-serif; /* Fonte elegante e legível */
+    --border-radius: 10px; /* Bordas arredondadas */
+    
+    /* Brilho da borda com a cor primária mais suave */
+    --primary-glow: rgba(108, 117, 125, 0.1); 
+}
+
+/* --- Reset Básico e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-light);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- PEDIDO: CENTRALIZAR O CONTEÚDO PRINCIPAL --- */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    flex-grow: 1; /* Faz esta seção ocupar todo o espaço vago */
+    width: 100%;
+    padding: 25px 0; /* Um espaçamento superior/inferior para respiro */
+}
+
+.container {
+    width: 90%;
+    max-width: 900px; /* Levemente menor para um visual mais contido */
+    margin: 0; /* <main> agora controla o posicionamento */
+    padding: 35px;
+    background-color: var(--bg-white);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color-container); /* Borda visível mas suave */
+    box-shadow: 0 4px 10px var(--shadow-color); /* Sombra mais discreta */
+    
+    /* --- PEDIDO: Animação na borda (mais sutil) --- */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.container:hover {
+    transform: translateY(-3px); /* Efeito "lift" mais notável */
+    box-shadow: 0 8px 20px var(--shadow-hover), 0 0 15px var(--primary-glow); /* Sombra + Brilho */
+    border-color: var(--primary-color); /* A borda ganha a cor primária no hover */
+}
+
+/* Containers específicos */
+.login-container {
+    max-width: 400px; /* Um pouco mais compacto para login */
+    /* Remove a margem superior que o estilo antigo tinha */
+    margin-top: 0; 
+    text-align: center; /* Garante que o texto do login esteja centralizado */
+}
+
+/* --- Header / Navegação (Cinza Escuro) --- */
+header {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    padding: 15px 0;
+    box-shadow: 0 2px 6px var(--shadow-hover);
+    border-bottom: 3px solid var(--primary-color); /* Linha sutil de destaque */
+    width: 100%;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px; /* Mais padding nas laterais */
+    margin: 0 auto;
+    box-shadow: none;
+    border: none; 
+    background-color: transparent;
+    transform: none; /* Desliga animação para o header */
+}
+.logo {
+    font-size: 1.9rem; /* Logo um pouco maior */
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.logo:hover {
+    color: var(--primary-color);
+}
+.user-info {
+    display: flex;
+    align-items: center;
+}
+.user-info span {
+    margin-right: 20px;
+    font-size: 1rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+.btn-logout {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 9px 16px; /* Um pouco menor */
+    border-radius: 6px; /* Menos arredondado */
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-logout:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+/* --- Títulos (H2, H3) --- */
+h2, h3 {
+    color: var(--text-color);
+    margin-bottom: 25px;
+    font-weight: 700; /* Mais negrito */
+    text-align: center;
+}
+.task-form h3, .task-list h3 { /* Estilo para os títulos do formulário e lista */
+    text-align: left;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color-input); /* Borda mais fina e suave */
+}
+/* Emojis discretos */
+.task-form h3::before { content: '✨ '; margin-right: 5px;} 
+.task-list h3::before { content: '📌 '; margin-right: 5px;}
+
+/* --- Formulários --- */
+.form-group {
+    margin-bottom: 20px;
+    /* Faz os labels do login.php ficarem alinhados à esquerda */
+    text-align: left; 
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color-input); 
+    border-radius: 6px; /* Menos arredondado */
+    font-size: 1rem;
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: #FFFFFF;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-group input[type="text"]:hover,
+.form-group input[type="email"]:hover,
+.form-group input[type="password"]:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    border-color: var(--primary-color); /* Borda da cor primária no hover */
+}
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-glow); /* Brilho no foco */
+    outline: none;
+}
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* --- Botões --- */
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+.btn-secondary {
+    background-color: #6C757D; /* Cinza do botão secundário */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    margin-left: 10px;
+}
+.btn-secondary:hover {
+    background-color: #5A6268;
+    box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+}
+
+/* --- Login / Cadastro Layout --- */
+.login-container p {
+    margin-top: 20px;
+    font-size: 0.95rem;
+}
+.login-container p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.login-container p a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* --- Mensagens de Erro/Sucesso --- */
+.error, .success {
+    padding: 14px 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    animation: fadeIn 0.5s ease-out;
+    border: 1px solid;
+    text-align: left; /* Garante que o texto da mensagem fique alinhado */
+}
+.error {
+    color: var(--danger-color);
+    background-color: #F8D7DA; /* Fundo mais suave */
+    border-color: var(--danger-color);
+}
+.success {
+    color: var(--success-color);
+    background-color: #D4EDDA; /* Fundo mais suave */
+    border-color: var(--success-color);
+}
+
+/* --- Lista de Tarefas (Tabela) --- */
+.task-form {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+}
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 25px;
+    border: 1px solid var(--border-color-container); 
+    box-shadow: 0 3px 10px var(--shadow-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+table th, table td {
+    padding: 14px 20px; /* Mais consistente */
+    text-align: left;
+    border-bottom: 1px solid var(--border-color-container);
+}
+table thead th {
+    background-color: var(--bg-dark); /* Combina com o header */
+    color: var(--text-light);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+table tbody tr:last-child td {
+    border-bottom: none;
+}
+table tbody tr:nth-child(even) {
+    background-color: #FDFDFD;
+}
+table tbody tr {
+    transition: background-color 0.3s ease;
+}
+table tbody tr:hover {
+    background-color: #F0F2F4; /* Cinza claro no hover */
+}
+.actions {
+    white-space: nowrap;
+    text-align: right;
+}
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 10px; /* Botões menores */
+    font-size: 0.8rem;
+    margin-left: 8px;
+    border-radius: 4px; /* Mais quadrados */
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.btn-action:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Cores dos botões de ação (adaptadas para o tema cinza) */
+.btn-start { background-color: var(--accent-color-andamento); } /* Azul acinzentado */
+.btn-start:hover { background-color: #5A8CA3; }
+
+.btn-complete { background-color: var(--success-color); } /* Verde discreto */
+.btn-complete:hover { background-color: #4A8C5B; }
+
+.btn-edit { background-color: var(--accent-color-pendente); } /* Dourado suave */
+.btn-edit:hover { background-color: #D9A050; }
+
+.btn-delete { background-color: var(--danger-color); } /* Vermelho padrão */
+.btn-delete:hover { background-color: #B02A37; }
+
+/* --- Status Badges (Novas Cores e Estilo) --- */
+.status {
+    padding: 5px 12px;
+    border-radius: 12px; /* Mais arredondado */
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-light); /* Padrão de texto claro para badges */
+    display: inline-block;
+    min-width: 80px; /* Um pouco menor */
+    text-align: center;
+    background-color: #ADB5BD; /* Cinza padrão para status genéricos */
+}
+.status-pendente { 
+    background-color: var(--accent-color-pendente);
+    color: var(--text-color); /* Texto escuro para badge dourado */
+} 
+.status-em-andamento { 
+    background-color: var(--accent-color-andamento);
+}
+.status-concluida, .status-concluída { 
+    background-color: var(--success-color);
+}
+
+/* --- Animações --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container, .task-list, .login-container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* --- Responsividade (Mantido o anterior) --- */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .user-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .user-info span {
+        margin-right: 0;
+    }
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    tr { border: 1px solid var(--border-color-container); margin-bottom: 10px; }
+    td {
+        border: none;
+        border-bottom: 1px solid var(--border-color-container);
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 600;
+    }
+    td:nth-of-type(1):before { content: "Título:"; }
+    td:nth-of-type(2):before { content: "Status:"; }
+    td:nth-of-type(3):before { content: "Ações:"; }
+    .actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .btn-action {
+        width: auto;
+        flex-grow: 1;
+        text-align: center;
+        justify-content: center;
+        margin-left: 0;
+    }
+}
+/* --- Estilos para o Botão "Nova Tarefa" (dashboard.php) --- */
+
+/* 1. Container do botão (para alinhar à direita) */
+.header-actions {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; /* Alinha o botão à direita */
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color-container);
+}
+
+/* 2. Esconde o formulário por padrão */
+.task-form {
+    display: none; /* ESCONDIDO POR PADRÃO */
+    overflow: hidden;
+    /* Remove a borda inferior que ele tinha (agora está no header-actions) */
+    border-bottom: none; 
+    margin-bottom: 25px;
+    /* Animação de entrada */
+    animation: slideDown 0.5s ease-out;
+}
+
+/* 3. Mostra o formulário quando o JS adicionar a classe */
+.task-form.form-visivel {
+    display: block; /* MOSTRAR */
+}
+
+/* 4. Animação de "deslizar" para baixo */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* --- Estilo para o Link de "Voltar" --- */
+
+.back-link {
+    display: inline-block; /* Permite margin */
+    margin-bottom: 20px; /* Espaçamento antes do título */
+    text-decoration: none;
+    color: var(--primary-color); /* Usa a cor primária (cinza) */
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary-hover); /* Escurece no hover */
+    text-decoration: underline; /* Sublinha no hover */
+}
+/* Adicione no seu style.css */
+.alert {
+    padding: 12px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.alert-error {
+    background-color: #fee;
+    border: 1px solid #fdd;
+    color: #c00;
+}
+
+.alert-success {
+    background-color: #efe;
+    border: 1px solid #ded;
+    color: #080;
+}
