@@ -61,7 +61,7 @@ if (!$tarefa) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Tarefa - My Task Manager</title>
+    <title>Editar Tarefa - Minhas Tarefas</title>
     <style>
         * {
             margin: 0;
