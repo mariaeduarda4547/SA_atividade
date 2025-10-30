@@ -5,7 +5,7 @@
 ?>
 <header>
     <nav class="container">
-        <a href="dashboard.php" class="logo">My Task Manager</a>
+        <a href="dashboard.php" class="logo">Minhas Tarefas</a>
         <div class="user-info">
             <span>Olá, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?>!</span>
             <a href="logout.php" class="btn btn-logout">Sair</a>
