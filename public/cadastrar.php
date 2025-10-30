@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>My Task Manager - Cadastro</title>
+    <title>Minhas Tarefas - Cadastro</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
