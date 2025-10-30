@@ -10,14 +10,14 @@ if (isset($_SESSION['usuario_id'])) {
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>My Task Manager - Login</title>
+    <title>Minhas Tarefas - Login</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     
     <main>
         <div class="container login-container">
-            <h2>Login - My Task Manager</h2>
+            <h2>Login - Minhas Tarefas</h2>
 
             <?php if (isset($_GET['erro'])): ?>
                 <p class="error"><?php echo htmlspecialchars($_GET['erro']); ?></p>
